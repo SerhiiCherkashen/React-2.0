@@ -1,0 +1,13 @@
+.dialogs {
+  display: flex;
+}
+.dialogsItem {
+  margin: 20px;
+}
+.messages {
+  margin: 20px;
+}
+button {
+  height: 20px;
+  width: 50px;
+}

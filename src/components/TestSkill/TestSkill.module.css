@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  justify-content: start;
+}
+.names {
+  height: 20px;
+  margin: 20px;
+}
+.messages {
+  height: 20px;
+  margin: 20px;
+}
