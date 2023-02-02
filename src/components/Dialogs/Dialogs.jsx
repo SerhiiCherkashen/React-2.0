@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { pushDialogsMessageActionCreator, updateOnChangeDialogsActionCreator } from "../../redux/state";
+import { pushDialogsMessageActionCreator, updateOnChangeDialogsActionCreator } from "../../redux/message-reduce ";
 import c from "./Dialogs.module.css";
 
 const DialogsItem = (props) => {

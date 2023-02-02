@@ -1,7 +1,7 @@
 import React from "react";
 import c from "./Trenirovka.module.css";
 import { NavLink } from "react-router-dom";
-import { pushTrenirovka } from "../../redux/state";
+import { pushTrenirovka } from "../../redux/trenirovka-reduce ";
 
 
 

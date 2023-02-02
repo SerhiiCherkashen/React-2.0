@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import c from "./TestSkill.module.css"
-import { pushTestSkill, changeTestSkill } from "../../redux/state";
+import { pushTestSkill, changeTestSkill } from "../../redux/testSkill-reduce ";
 
 let N = (props)=>{
     return(
@@ -39,8 +39,9 @@ let fnClick=()=>{
 props.dispatch(pushTestSkill())
  
 }
-let fnChange = ()=>{
-    let text =refElement.current.value 
+let fnChange = (e)=>{
+    // let text =refElement.current.value 
+    let text = e.target.value
       props.dispatch(changeTestSkill(text))
 }
     return (
@@ -53,7 +54,7 @@ let fnChange = ()=>{
         <div className={c.messages} >       
             {bbb}
              <textarea  onChange={fnChange}
-             ref={refElement} 
+            //  ref={refElement} 
              value={props.page.newPost} />
                 <button onClick={fnClick} />
         </div>

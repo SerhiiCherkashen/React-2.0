@@ -1,11 +1,17 @@
 // import { cloneElement } from "react";
 
+import messageReduce from "./message-reduce "
+import profileReduce from "./profile-reduce"
+import testSkillReduce from "./testSkill-reduce "
+import trevirovkaReduce from "./trenirovka-reduce "
+
 const UPDATE_ON_CHANGE_DIALOGS = "UPDATE-ON-CHANGE-DIALOGS"
 const PUSH_DIALOGS_MESSAGE = "PUSH-DIALOGS-MESSAGE"
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
 const PUSH_POST = "PUSH-POST"
 const PUSH_TEXT_SKILL = "PUSH-TEXT-SKILL"
 const CHANGE_TEST_SKILL = "CHANGE-TEST-SKILL"
+const PUSH_TRENIROVKA = "PUSH-TRENIROVKA"
 
 let store = {
   _state: {
@@ -89,103 +95,64 @@ let store = {
   },
   dispatch(action) {
 
-    if (action.type === PUSH_POST) {
-      let newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        like: 0,
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
+    profileReduce(this._state.profilePage, action)
+    messageReduce(this._state.messagePage, action)
+    testSkillReduce(this._state.testSkillPage, action)
+    trevirovkaReduce(this._state.trenirovkaPage, action)
 
+    this._callSubscriber(this._state);
 
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === PUSH_DIALOGS_MESSAGE) {
+    // if (action.type === PUSH_POST) {
+    //   let newPost = {
+    //     id: 5,
+    //     message: this._state.profilePage.newPostText,
+    //     like: 0,
+    //   };
+    //   this._state.profilePage.posts.push(newPost);
+    //   this._state.profilePage.newPostText = "";
+    //   this._callSubscriber(this._state);
+    // } else if (action.type === UPDATE_NEW_POST_TEXT) {
+    //   this._state.profilePage.newPostText = action.newText;
+    //   this._callSubscriber(this._state);
+    // } else if (action.type === PUSH_DIALOGS_MESSAGE) {
+    //   let newMessage = {
+    //     id: 5,
+    //     message: this._state.messagePage.date,
+    //   };
+    //   this._state.messagePage.messageDate.push(newMessage);
+    //   this._state.messagePage.date = "";
+    //   this._callSubscriber(this._state);
+    // } else if (action.type === UPDATE_ON_CHANGE_DIALOGS) {
+    //   this._state.messagePage.date = action.literMessage;
+    //   this._callSubscriber(this._state);
+    // } else if (action.type === PUSH_TEXT_SKILL) {
+    //   let newPost = {
+    //     id: 5,
+    //     message: this._state.testSkillPage.newPost
+    //   }
+    //   this._state.testSkillPage.messages.push(newPost)
+    //   this._state.testSkillPage.newPost = ""
+    //   this._callSubscriber(this._state)
+    //   console.log("newPost = " + this._state.testSkillPage.newPost)
+    // } else if (action.type === CHANGE_TEST_SKILL) {
+    //   this._state.testSkillPage.newPost = action.mes
+    //   this._callSubscriber(this._state)
+    //   console.log("newPost = " + this._state.testSkillPage.newPost)
+    // } else if (action.type === PUSH_TRENIROVKA) {
+    //   // pushTrenirovka()
 
-      let newMessage = {
-        id: 5,
-        message: this._state.messagePage.date,
-      };
-      this._state.messagePage.messageDate.push(newMessage);
-      this._state.messagePage.date = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_ON_CHANGE_DIALOGS) {
-      this._state.messagePage.date = action.literMessage;
-      this._callSubscriber(this._state);
-    } else if (action.type === PUSH_TEXT_SKILL) {
-      let newPost = {
-        id: 5,
-        message: this._state.testSkillPage.newPost
-      }
-      this._state.testSkillPage.messages.push(newPost)
-      this._state.testSkillPage.newPost = ""
-      this._callSubscriber(this._state)
-      console.log("newPost = " + this._state.testSkillPage.newPost)
-    } else if (action.type === CHANGE_TEST_SKILL) {
-      this._state.testSkillPage.newPost = action.mes
-      this._callSubscriber(this._state)
-      console.log("newPost = " + this._state.testSkillPage.newPost)
-    } else if (action.type === PUSH_TRENIROVKA) {
-      // pushTrenirovka()
+    //   let newPost = {
+    //     id: 5,
+    //     message: action.pin
+    //   }
+    //   this._state.trenirovkaPage.messages.push(newPost)
 
-      let newPost = {
-        id: 5,
-        message: action.pin
-      }
-      this._state.trenirovkaPage.messages.push(newPost)
-
-      this._callSubscriber(this._state)
-    }
+    //   this._callSubscriber(this._state)
+    // }
   },
 }
 
-export const pushPostActionCreator = () => {
-  return {
-    type: PUSH_POST
-  }
-}
-export const updateNewPostTextActionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text
-  }
-}
-export const pushDialogsMessageActionCreator = () => {
-  return {
-    type: PUSH_DIALOGS_MESSAGE
-  }
-}
-export const updateOnChangeDialogsActionCreator = (text) => {
-  return {
-    type: UPDATE_ON_CHANGE_DIALOGS,
-    literMessage: text
-  }
 
-}
-export const pushTestSkill = () => {
-  return {
-    type: PUSH_TEXT_SKILL,
-  }
-}
-export const changeTestSkill = (text) => {
-  return {
-    type: CHANGE_TEST_SKILL,
-    mes: text
-
-  }
-}
-
-export const pushTrenirovka = (text) => {
-  return {
-    type: PUSH_TRENIROVKA,
-    pin: text
-  }
-
-}
-const PUSH_TRENIROVKA = "PUSH-TRENIROVKA"
 // window.state = store;
 export default store;
 

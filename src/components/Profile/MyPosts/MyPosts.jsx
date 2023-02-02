@@ -1,7 +1,7 @@
 import React from "react";
 import c from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { pushPostActionCreator ,updateNewPostTextActionCreator  } from "../../../redux/state";
+import { pushPostActionCreator ,updateNewPostTextActionCreator  } from "../../../redux/profile-reduce";
 
 const MyPosts = (props) => {
   let mapPosts = props.posts.map((el) => {
