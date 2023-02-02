@@ -95,10 +95,10 @@ let store = {
   },
   dispatch(action) {
 
-    profileReduce(this._state.profilePage, action)
-    messageReduce(this._state.messagePage, action)
-    testSkillReduce(this._state.testSkillPage, action)
-    trevirovkaReduce(this._state.trenirovkaPage, action)
+    this._state.profilePage = profileReduce(this._state.profilePage, action)
+    this._state.messagePage = messageReduce(this._state.messagePage, action)
+    this._state.testSkillPage = testSkillReduce(this._state.testSkillPage, action)
+    this._state.trenirovkaPage = trevirovkaReduce(this._state.trenirovkaPage, action)
 
     this._callSubscriber(this._state);
 

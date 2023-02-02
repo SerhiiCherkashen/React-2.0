@@ -57,3 +57,20 @@ export const updateNewPostTextActionCreator = (text) => {
 }
 
 export default profileReduce
+
+
+
+// const prReduce = (state, action) => {
+//     if (action.type === PUSH_POST) {
+//         a + b
+//     } else if (action.type === SIFT) {
+//         a - b + state
+//     }
+//     return state
+// }
+// export const fnPush = (text) => {
+//     return {
+//         type: PUSH_POST,
+//         message: text,
+//     }
+// }
